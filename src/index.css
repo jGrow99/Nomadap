@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+@theme {
+  --font-display: "Bebas Neue", system-ui, sans-serif;
+  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-background: hsl(173, 52%, 8%);
+  --color-foreground: hsl(45, 30%, 96%);
+
+  --color-card: hsl(173, 45%, 11%);
+  --color-card-foreground: hsl(45, 30%, 96%);
+
+  --color-primary: hsl(46, 100%, 48%);
+  --color-primary-foreground: hsl(173, 60%, 8%);
+
+  --color-secondary: hsl(152, 51%, 36%);
+  --color-secondary-foreground: hsl(45, 30%, 96%);
+
+  --color-muted: hsl(173, 35%, 15%);
+  --color-muted-foreground: hsl(45, 15%, 70%);
+
+  --color-accent: hsl(13, 78%, 57%);
+  --color-accent-foreground: hsl(45, 30%, 96%);
+
+  --color-destructive: hsl(0, 84%, 60%);
+  --color-border: hsl(173, 30%, 18%);
+
+  --color-jungle: hsl(152, 51%, 36%);
+  --color-coral: hsl(13, 78%, 57%);
+  --color-gold: hsl(46, 100%, 48%);
+  --color-wine: #722F37;
+  --color-deep: hsl(173, 60%, 6%);
+  
+  --color-waze: #33ccff;
+  --color-waze-foreground: #000000;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-hero { background: linear-gradient(135deg, hsl(173 60% 6%) 0%, hsl(173 50% 12%) 50%, hsl(152 40% 18%) 100%); }
+  .bg-sun { background: linear-gradient(135deg, hsl(46 100% 48%) 0%, hsl(13 78% 57%) 100%); }
+  .bg-jungle { background: linear-gradient(135deg, hsl(152 51% 36%) 0%, hsl(173 60% 20%) 100%); }
+  .bg-fiesta { background: linear-gradient(120deg, hsl(13 78% 57%) 0%, hsl(46 100% 48%) 35%, hsl(152 51% 36%) 70%, hsl(280 60% 45%) 100%); }
+  .bg-tropic { background: linear-gradient(135deg, hsl(340 80% 55%) 0%, hsl(13 78% 57%) 40%, hsl(46 100% 55%) 100%); }
+  .bg-selva { background: linear-gradient(160deg, hsl(152 60% 25%) 0%, hsl(173 55% 15%) 60%, hsl(280 40% 20%) 100%); }
+  .bg-cafe { background: linear-gradient(160deg, hsl(28 45% 18%) 0%, hsl(22 38% 12%) 45%, hsl(152 50% 14%) 100%); }
+  .bg-tierra { background: linear-gradient(135deg, hsl(28 55% 35%) 0%, hsl(18 60% 28%) 50%, hsl(152 45% 22%) 100%); }
+
+  .shadow-glow { box-shadow: 0 20px 60px -20px hsl(46 100% 48% / 0.4); }
+  .shadow-coral { box-shadow: 0 20px 60px -20px hsl(13 78% 57% / 0.45); }
+  .shadow-card { box-shadow: 0 8px 32px -12px hsl(173 60% 4% / 0.6); }
+
+  .text-balance { text-wrap: balance; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+  .animate-pulse-soft { animation: pulse-soft 4s ease-in-out infinite; }
+
+  .pattern-mola {
+    background-color: hsl(173 60% 8%);
+    background-image:
+      radial-gradient(ellipse 60% 40% at 15% 100%, hsl(152 60% 30% / 0.55) 0, transparent 60%),
+      radial-gradient(ellipse 70% 35% at 85% 100%, hsl(173 55% 25% / 0.55) 0, transparent 60%),
+      radial-gradient(ellipse 50% 30% at 50% 95%, hsl(46 90% 35% / 0.30) 0, transparent 70%),
+      radial-gradient(circle at 80% 20%, hsl(46 100% 55% / 0.25) 0, transparent 25%);
+  }
+
+  .pattern-confetti {
+    background-image:
+      radial-gradient(hsl(46 100% 55% / 0.9) 2px, transparent 2.5px),
+      radial-gradient(hsl(13 78% 57% / 0.9) 2px, transparent 2.5px),
+      radial-gradient(hsl(152 60% 45% / 0.9) 2px, transparent 2.5px),
+      radial-gradient(hsl(280 60% 60% / 0.9) 2px, transparent 2.5px);
+    background-size: 48px 48px, 56px 56px, 64px 64px, 72px 72px;
+    background-position: 0 0, 18px 22px, 32px 8px, 48px 36px;
+  }
+  
+  .pattern-wayuu {
+    background-color: transparent;
+    background-image:
+      linear-gradient(135deg, hsl(46 100% 48% / 0.18) 25%, transparent 25%),
+      linear-gradient(225deg, hsl(13 78% 57% / 0.18) 25%, transparent 25%),
+      linear-gradient(45deg, hsl(152 51% 36% / 0.18) 25%, transparent 25%),
+      linear-gradient(315deg, hsl(173 50% 25% / 0.18) 25%, transparent 25%);
+    background-size: 28px 28px;
+    background-position: 14px 0, 14px 0, 0 0, 0 0;
+  }
+
+  .pattern-andes {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'><path d='M0,200 L0,140 L80,90 L160,130 L240,70 L340,120 L420,60 L520,110 L600,40 L700,100 L790,70 L880,130 L970,80 L1080,120 L1200,90 L1200,200 Z' fill='%231a4a3a' opacity='0.55'/><path d='M0,200 L0,160 L100,120 L200,150 L320,100 L440,140 L560,90 L680,130 L800,100 L920,140 L1040,110 L1200,150 L1200,200 Z' fill='%23103028' opacity='0.75'/></svg>");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 100% auto;
+  }
+
+  .pattern-cafe {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><g fill='%2334a36b' opacity='0.25'><g transform='translate(25,25) rotate(30)'><path d='M0 -18 C14 -18, 14 18, 0 18 C-14 18, -14 -18, 0 -18 Z'/><path d='M0 -16 C8 -8, -8 8, 0 16' stroke='white' stroke-width='2' fill='none'/></g><g transform='translate(75,70) rotate(-20)'><path d='M0 -14 C11 -14, 11 14, 0 14 C-11 14, -11 -14, 0 -14 Z'/><path d='M0 -12 C6 -6, -6 6, 0 12' stroke='white' stroke-width='1.5' fill='none'/></g></g></svg>");
+    background-size: 100px 100px;
+  }
+}
+
+
+/* Leaflet Dark Popup Overrides for Bento Grid */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: var(--color-card) !important;
+  color: var(--color-foreground) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px -12px hsl(173 60% 4% / 0.6) !important;
+}
+
+.leaflet-popup-content {
+  margin: 10px 14px !important;
+  font-family: "Barlow", sans-serif !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--color-muted-foreground) !important;
+  padding: 4px !important;
+}
+
+/* Base custom styles to ensure Leaflet maps render cleanly in dark mode behind everything */
+.leaflet-container {
+  background: var(--color-background) !important;
+  font-family: inherit !important;
+}

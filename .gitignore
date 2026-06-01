@@ -1,0 +1,12 @@
+node_modules
+node_modules/
+build
+build/
+dist
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+temp_lovable*/

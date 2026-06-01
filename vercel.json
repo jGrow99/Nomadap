@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/server.cjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "vite.config.ts",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/force-scrape",
+      "schedule": "0 0 * * *"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/dist/server.cjs"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
